@@ -59,14 +59,13 @@ file("$reactNativeRootDir/ReactAndroid/gradle.properties").withInputStream { rea
 def REACT_NATIVE_VERSION = reactNativeProperties.getProperty("VERSION_NAME")
 def REACT_NATIVE_MINOR_VERSION = REACT_NATIVE_VERSION.startsWith("0.0.0-") ? 1000 : REACT_NATIVE_VERSION.split("\\.")[1].toInteger()
 
-def DEFAULT_FRESCO_VERSION = "3.2.0"
-
 def getFrescoVersion() {
+    def defaultFrescoVersion = "3.2.0"
     def reactNativeRootDir = resolveReactNativeDirectory()
     def frescoVersion = null
     def versionsFile = new File("$reactNativeRootDir/gradle/libs.versions.toml")
     if (!versionsFile.exists()) {
-        return DEFAULT_FRESCO_VERSION
+        return defaultFrescoVersion
     }
     versionsFile.withInputStream { stream ->
         stream.eachLine { line ->
@@ -79,7 +78,7 @@ def getFrescoVersion() {
         }
     }
     if (!frescoVersion) {
-        return DEFAULT_FRESCO_VERSION
+        return defaultFrescoVersion
     }
     return frescoVersion
 }

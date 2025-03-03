@@ -2,6 +2,11 @@
   "version": "15.11.1",
   "name": "react-native-svg",
   "description": "SVG library for react-native",
+  "homepage": "https://github.com/react-native-community/react-native-svg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-native-community/react-native-svg"
+  },
   "license": "MIT",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -21,6 +26,15 @@
     "react-native.config.js",
     "scripts/rnsvg_utils.rb"
   ],
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
   "keywords": [
     "react-component",
     "react-native",

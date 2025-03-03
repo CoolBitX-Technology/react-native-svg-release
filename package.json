@@ -74,6 +74,13 @@
     "css-tree": "^1.1.3",
     "warn-once": "0.1.1"
   },
+  "lint-staged": {
+    "{src,apps/common}/**/*.{js,ts,tsx}": "yarn format-js",
+    "src/**/*.{js,ts,tsx}": "yarn lint",
+    "apple/**/*.{h,m,mm,cpp}": "yarn format-ios",
+    "android/src/**/*.java": "yarn format-java",
+    "src/fabric/*.ts": "yarn sync-archs"
+  },
   "nativePackage": true,
   "codegenConfig": {
     "name": "rnsvg",
@@ -115,5 +122,6 @@
         "RNSVGUse": "RNSVGUse"
       }
     }
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
